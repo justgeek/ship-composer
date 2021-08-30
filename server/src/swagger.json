@@ -1,0 +1,194 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Ships Composer API",
+    "description": "Ship composer API docs"
+  },
+  "tags": [
+    {
+      "name": "Ships",
+      "description": "API for ships in the system"
+    }
+  ],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/ships": {
+      "get": {
+        "tags": ["Ships"],
+        "summary": "Get all ships in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Ships"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Ships"],
+        "summary": "Create a new ship in system",
+        "requestBody": {
+          "description": "Ship Object",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/Ship"
+              }
+            }
+          }
+        },
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/id"
+            }
+          },
+          "400": {
+            "description": "Failed. Bad post data."
+          }
+        }
+      }
+    },
+    "/ships/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of the ship that we want to match",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": ["Ships"],
+        "summary": "Get ship with given ID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "Ship with id",
+            "schema": {
+              "$ref": "#/definitions/id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Ship"
+            }
+          },
+          "404": {
+            "description": "Failed. Ship not found."
+          }
+        }
+      },
+      "put": {
+        "summary": "Update ship with given ID",
+        "tags": ["Ships"],
+        "requestBody": {
+          "description": "Ship Object",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/Ship"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "Ship with new values of properties",
+            "schema": {
+              "$ref": "#/definitions/id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Ship"
+            }
+          },
+          "400": {
+            "description": "Failed. Bad post data."
+          },
+          "404": {
+            "description": "Failed. Ship not found."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete ship with given ID",
+        "tags": ["Ships"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "Delete Ship with id",
+            "schema": {
+              "$ref": "#/definitions/id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/id"
+            }
+          },
+          "404": {
+            "description": "Failed. Ship not found."
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "id": {
+      "properties": {
+        "uuid": {
+          "type": "string"
+        }
+      }
+    },
+    "Ship": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "length": {
+          "type": "number"
+        },
+        "width": {
+          "type": "number"
+        },
+        "code": {
+          "type": "string"
+        }
+      }
+    },
+    "Ships": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Ship"
+      }
+    }
+  }
+}
