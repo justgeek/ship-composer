@@ -3,6 +3,7 @@ import Router from "./router";
 import swaggerUi from "swagger-ui-express";
 import * as swaggerDocument from "./swagger.json";
 import * as bodyParser from "body-parser";
+import * as expressValidator from "express-validator";
 
 class App {
   private httpServer: any;
