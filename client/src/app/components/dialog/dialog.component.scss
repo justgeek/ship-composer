@@ -1,0 +1,28 @@
+.dialog-wrapper {
+  .dialog {
+    position: absolute;
+    z-index: 2;
+    width: 500px;
+    max-width: 80vw;
+    max-height: 80vh;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+
+    .close-btn {
+      float: right;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--color-primary);
+
+      &:hover {
+        color: var(--color-secondary);
+      }
+    }
+  }
+}

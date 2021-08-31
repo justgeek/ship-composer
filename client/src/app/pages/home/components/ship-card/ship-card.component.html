@@ -1,0 +1,14 @@
+<div class="ship-card shadow-2">
+  <div class="delete-btn" (click)="confirmShipDeletion(ship)">&#10006;</div>
+  <div class="card-header">
+    <span>{{ ship.code }}</span>
+  </div>
+  <div class="card-body">
+    <span class="ship-name">{{ ship.name }}</span>
+  </div>
+  <a class="edit-link" (click)="updateShip(ship)">EDIT</a>
+  <div class="card-footer">
+    <span class="card-footer-status"> width: {{ ship.width }} </span>
+    <span class="card-footer-status"> length: {{ ship.length }} </span>
+  </div>
+</div>

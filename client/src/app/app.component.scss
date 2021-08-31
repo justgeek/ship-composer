@@ -1,0 +1,20 @@
+/* Global app styles non encapsulated */
+#app,
+.page {
+  height: 100%;
+  width: 100%;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+
+  app-pages {
+    flex: 1;
+  }
+
+  .content {
+    width: 100%;
+    flex: 1;
+  }
+}

@@ -1,0 +1,10 @@
+<ng-container *ngIf="isDialogShown">
+  <div class="dialog-wrapper">
+    <div class="overlay" (click)="closeDialog()"></div>
+    <div class="dialog">
+      <div class="close-btn" (click)="closeDialog()">&#10006;</div>
+      <h1>{{ title }}</h1>
+      <ng-content></ng-content>
+    </div>
+  </div>
+</ng-container>

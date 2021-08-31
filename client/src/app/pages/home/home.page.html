@@ -1,0 +1,28 @@
+<section id="home-page" class="main-page page">
+  <div class="page-header">
+    <div class="add-new-ship-container" *ngIf="ships.length">
+      <button (click)="showCreateUpdateShipDialog()">Create New Ship</button>
+    </div>
+  </div>
+  <div class="page-body">
+    <div *ngIf="ships.length === 0">
+      <empty-home [action]="showCreateUpdateShipDialog"></empty-home>
+    </div>
+
+    <div class="ships-names">
+      <div *ngFor="let ship of ships">
+        <ship-card
+          [ship]="ship"
+          (deleteShipEvent)="deleteShip($event)"
+          (updateShipEvent)="showCreateUpdateShipDialog($event)"
+        ></ship-card>
+      </div>
+    </div>
+  </div>
+  <app-dialog [title]="getFormTitle()">
+    <create-update-ship-form
+      (formIsReadyToSubmit)="submitShipForm($event)"
+      [initialFormData]="$any(shipToUpdate)"
+    ></create-update-ship-form>
+  </app-dialog>
+</section>

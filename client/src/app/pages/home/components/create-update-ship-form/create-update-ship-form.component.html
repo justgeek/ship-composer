@@ -1,0 +1,26 @@
+<form
+  [formGroup]="formGroup"
+  #shipForm="ngForm"
+  id="create-update-ship-form"
+  (ngSubmit)="submitForm(formGroup.value)"
+  novalidate
+>
+  <div *ngFor="let fieldItem of $any(formData) | keyvalue">
+    <input
+      type="text"
+      [formControlName]="$any(fieldItem.key)"
+      [placeholder]="$any(fieldItem).value.placeholder"
+    />
+    <div *ngIf="shouldValidateField(fieldItem.key)" class="errors-wrapper">
+      <div *ngFor="let fieldError of getFieldErrors(fieldItem.key) | keyvalue">
+        <div
+          class="error"
+          *ngIf="getFieldErrorTrigger(fieldItem.key, fieldError.key)"
+        >
+          {{ fieldError.value }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <input type="submit" value="submit" />
+</form>
