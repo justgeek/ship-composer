@@ -11,6 +11,13 @@ The server side is far from perfect, and adds some layers that may not really be
 
 Worthless to mention that all that scaffold code could be generated using infrastructure as a code approach, but due to time limiation I wanted to show the final output of this base.
 
+## Screenshot
+<img src="./screenshots/1.png" alt="drawing" width="600"/>
+<img src="./screenshots/2.png" alt="drawing" width="600"/>
+<img src="./screenshots/3.png" alt="drawing" width="600"/>
+<img src="./screenshots/4.png" alt="drawing" width="600"/>
+
+
 ## Server Side:
 Divide & Conquer is an effective approach not only for solving real life problems, but also for solving technical porblems. The goal is to always break down your issues into granular level, so you can conquer(solve) them easily.
 
